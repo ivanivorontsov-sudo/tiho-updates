@@ -1,0 +1,55 @@
+name: publish-app
+
+# Тихо's CI (private tiho-browser repo) pushes APKs + update-v2.json (signed with the CI-only Ed25519 key) to the
+# orphan `incoming` branch with a write deploy key. This workflow verifies everything, creates release app-vX with
+# the APKs, commits the descriptor to main and deletes `incoming`.
+on:
+  push:
+    branches: [incoming]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-app
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
+      - uses: actions/checkout@v4
+        with:
+          ref: incoming
+          path: incoming
+      - name: Verify signature and APK hashes
+        run: |
+          # APKs arrive in 45 MB parts (git's 100 MB file limit); join them, then verify size + SHA-256 of the result.
+          if [ -d incoming/apks ]; then (cd incoming/apks && for p in *.apk.part-aa; do [ -e "$p" ] || continue; n="${p%.part-aa}"; cat "$n".part-* > "$n" && rm "$n".part-*; done && ls -l); fi
+          python3 -c "import cryptography" 2>/dev/null || pip install --quiet cryptography
+          cd main && python3 tools/check-incoming.py ../incoming
+      - name: Release + descriptor
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          V=$(python3 -c 'import json;print(json.load(open("incoming/meta.json"))["version"])')
+          if [ -d incoming/apks ]; then
+            GV=$(python3 -c 'import json;print(json.load(open("incoming/meta.json")).get("gecko",""))')
+            if gh release view "app-v$V" -R "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+              gh release upload "app-v$V" incoming/apks/*.apk --clobber -R "$GITHUB_REPOSITORY"
+            else
+              gh release create "app-v$V" incoming/apks/*.apk -R "$GITHUB_REPOSITORY" --target main --title "Тихо $V" \
+                --notes "Тихо $V на GeckoView $GV. APK подписаны ключом privbrowser (SHA-256 сертификата F1:72:85:19:60:CF:08:63:34:B7:14:91:FB:DC:48:89:86:1E:1E:EB:60:7E:4F:2D:40:6C:BD:86:FF:90:D6:D0). Устанавливаются поверх через встроенное обновление (app/update-v2.json)."
+            fi
+          fi
+          cp incoming/update-v2.json incoming/update-v2.json.minisig main/app/
+          cd main
+          git add app/update-v2.json app/update-v2.json.minisig
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "app: update-v2.json → $V" || echo "no change"
+          git push origin HEAD:main
+          git push origin --delete incoming
