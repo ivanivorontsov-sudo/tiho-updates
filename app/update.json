@@ -1,0 +1,14 @@
+{
+ "format": 1,
+ "package": "org.ivanivorontsov.tiho",
+ "version_code": 3,
+ "version_name": "1.1.0",
+ "min_version_code": 1,
+ "apk_url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v1.1.0/tiho-browser-1.1.0.apk",
+ "sha256": "121b20d93c5745bc4f8209210f0bbd92164e6009d2f07d4579996acf42cb114e",
+ "size": 8048875,
+ "cert_sha256": "F1:72:85:19:60:CF:08:63:34:B7:14:91:FB:DC:48:89:86:1E:1E:EB:60:7E:4F:2D:40:6C:BD:86:FF:90:D6:D0",
+ "released": "2026-10-01T08:32:00Z",
+ "expires": 1801211520,
+ "notes": "Безопасный режим оплаты, защита от фишинга и гомографов, подписанные обновления списков и приложения, закрепление SHA-256 для userscripts."
+}
