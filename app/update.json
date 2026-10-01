@@ -1,14 +1,14 @@
 {
  "format": 1,
  "package": "org.ivanivorontsov.tiho",
- "version_code": 3,
- "version_name": "1.1.0",
+ "version_code": 4,
+ "version_name": "1.1.1",
  "min_version_code": 1,
- "apk_url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v1.1.0/tiho-browser-1.1.0.apk",
- "sha256": "121b20d93c5745bc4f8209210f0bbd92164e6009d2f07d4579996acf42cb114e",
- "size": 8048875,
+ "apk_url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v1.1.1/tiho-browser-1.1.1.apk",
+ "sha256": "8c0f2e97a27d487770d88a42511eb9727f3b4b4ebe7a8c412fc90d762ed0880f",
+ "size": 8050167,
  "cert_sha256": "F1:72:85:19:60:CF:08:63:34:B7:14:91:FB:DC:48:89:86:1E:1E:EB:60:7E:4F:2D:40:6C:BD:86:FF:90:D6:D0",
- "released": "2026-10-01T08:32:00Z",
- "expires": 1801211520,
- "notes": "Безопасный режим оплаты, защита от фишинга и гомографов, подписанные обновления списков и приложения, закрепление SHA-256 для userscripts."
+ "released": "2026-10-01T10:35:10Z",
+ "expires": 1822386910,
+ "notes": "Тихо 1.1.1 — мост к версии 2.0 на движке GeckoView (Firefox): настоящие расширения, uBlock Origin. После установки сразу предложит обновление до 2.0."
 }
