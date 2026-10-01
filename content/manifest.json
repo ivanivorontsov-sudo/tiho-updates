@@ -1,0 +1,158 @@
+{
+ "format": 1,
+ "name": "tiho-content",
+ "version": 1,
+ "created": "2026-10-01T07:56:07Z",
+ "expires": 1794729367,
+ "min_app_version": 3,
+ "min_webview_major": 148,
+ "files": [
+  {
+   "path": "filters/adguard-urltracking.txt",
+   "url": "packs/1/filters/adguard-urltracking.txt",
+   "sha256": "1fa8200c89738fdc279aa4ea5eda4349f71ab0f53ecea5266532f9662b611311",
+   "size": 184252,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/cname-ads.txt",
+   "url": "packs/1/filters/cname-ads.txt",
+   "sha256": "9a901b4b11639380b40080eb7083377adad217ecfeed5a1d83b54009a636f2f8",
+   "size": 305179,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/easylist-cookie.txt",
+   "url": "packs/1/filters/easylist-cookie.txt",
+   "sha256": "be3036e8888d5d916ca9c3306693e017b736c813930b7938f59db673f8e19120",
+   "size": 898910,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/easylist.txt",
+   "url": "packs/1/filters/easylist.txt",
+   "sha256": "46b6ac7811c6b7158aa45e60a677727919665002eb3d2bebcdb40e5693882f2c",
+   "size": 2068060,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/easyprivacy.txt",
+   "url": "packs/1/filters/easyprivacy.txt",
+   "sha256": "f51721a1158207876b3217e2c48281bddc5055df7add659f04a47e14bf25ba09",
+   "size": 1507178,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/hagezi-light.txt",
+   "url": "packs/1/filters/hagezi-light.txt",
+   "sha256": "2c015e6bc9d267f5dde291791f6c656f22f344c82559d83de83c91d979310292",
+   "size": 1031590,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/payment-unbreak.txt",
+   "url": "packs/1/filters/payment-unbreak.txt",
+   "sha256": "b7824c31bdc0a7abd4525ec75d5aa6053ac3dd4fe6f811b50cb8d56dbb77a787",
+   "size": 52359,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/peterlowe.txt",
+   "url": "packs/1/filters/peterlowe.txt",
+   "sha256": "2f94e898f55e094d1d53f2dcd26762d593a5cb6f74594b46a488dc05dd88838b",
+   "size": 70307,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/ruadlist.txt",
+   "url": "packs/1/filters/ruadlist.txt",
+   "sha256": "ba31ecf5aaae1b3f0c7cd7701159b8d8a68e42002daa9ad6029678a87848b1b9",
+   "size": 1103799,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/ublock-badware.txt",
+   "url": "packs/1/filters/ublock-badware.txt",
+   "sha256": "8409a364c1437d424753e1d24e99a4027a7988b03eebe34d9aa953388c0e9b0e",
+   "size": 151217,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/ublock-cookies.txt",
+   "url": "packs/1/filters/ublock-cookies.txt",
+   "sha256": "ea103e892aee9f134092789119500ca03489e88bd182faeba0c45cea61d13020",
+   "size": 376025,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/ublock-filters.txt",
+   "url": "packs/1/filters/ublock-filters.txt",
+   "sha256": "978332beedde6732040f41ef00305709e21b79c85aefdec9c42c78e78046d0c9",
+   "size": 1904519,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/ublock-privacy.txt",
+   "url": "packs/1/filters/ublock-privacy.txt",
+   "sha256": "dfb5d7a50f33ea1001d4019567dab2f31ec3b9e02a0dc8ffa56c5f7e9dbc2f28",
+   "size": 139635,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/ublock-quickfixes.txt",
+   "url": "packs/1/filters/ublock-quickfixes.txt",
+   "sha256": "3615e975e98178c9acdf2cdd1c854042abb696a287edb56a0c5b2e755255f555",
+   "size": 75244,
+   "kind": "filter"
+  },
+  {
+   "path": "filters/ublock-unbreak.txt",
+   "url": "packs/1/filters/ublock-unbreak.txt",
+   "sha256": "75e3d2da5d91c77b5d1da5c4edbfb80f6a4ecf12ab587bb8788bc46f4f206fc3",
+   "size": 177516,
+   "kind": "filter"
+  },
+  {
+   "path": "js/content.js",
+   "url": "packs/1/js/content.js",
+   "sha256": "272a9c0610b0f0ace671fa5d30a53ae1842fc37bc47822ce2f56dfa0ac4a35a2",
+   "size": 14846,
+   "kind": "code"
+  },
+  {
+   "path": "js/privacy.js",
+   "url": "packs/1/js/privacy.js",
+   "sha256": "52a36db4a41a25d8f02992de4d4cd6a95a43597bc2a0d0fa18eaea5469e3852a",
+   "size": 21047,
+   "kind": "code"
+  },
+  {
+   "path": "payment-domains.json",
+   "url": "packs/1/payment-domains.json",
+   "sha256": "eaed83d79efe9413a902baefec28641bb8e217f908e1be0fd8c592fea90532f7",
+   "size": 2476,
+   "kind": "data"
+  },
+  {
+   "path": "security/phishing-filter.txt",
+   "url": "packs/1/security/phishing-filter.txt",
+   "sha256": "773b86f7d5485efbadb84b416c1f08a29e07d198d696ee6c81a9d1f328c7e06f",
+   "size": 3212026,
+   "kind": "filter"
+  },
+  {
+   "path": "security/urlhaus.txt",
+   "url": "packs/1/security/urlhaus.txt",
+   "sha256": "b123512677fa2ba18677a0c71f05af1986ab9ec24f8c8540f9295cd8c2e82cb8",
+   "size": 848689,
+   "kind": "filter"
+  },
+  {
+   "path": "userscripts/catalog.json",
+   "url": "packs/1/userscripts/catalog.json",
+   "sha256": "026d28986a093f0cb872866a626446efd5bdcc56093ba1126b12ee5ce9aa417c",
+   "size": 452,
+   "kind": "data"
+  }
+ ]
+}

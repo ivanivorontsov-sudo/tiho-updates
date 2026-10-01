@@ -1,0 +1,8 @@
+[
+ {
+  "name": "Разрешить выделение и копирование",
+  "description": "Пример userscript: снимает запреты на выделение текста, копирование и контекстное меню.",
+  "url": "https://raw.githubusercontent.com/ivanivorontsov-sudo/tiho-updates/main/userscripts/allow-copy.user.js",
+  "sha256": "58785ca7566538a65b0d169b64a651a54ff490b6d36e56e43a4a1f653f9378e7"
+ }
+]
