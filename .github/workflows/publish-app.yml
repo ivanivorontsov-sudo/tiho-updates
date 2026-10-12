@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: publish-app
@@ -68,6 +69,12 @@ jobs:
           cp incoming/update-v2.json incoming/update-v2.json.minisig main/app/
           cd main
           git add app/update-v2.json app/update-v2.json.minisig
-          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "app: update-v2.json → $V" || echo "no change"
-          git push origin HEAD:main
+          # main is protected by a ruleset (changes only via pull request): publish through a PR the bot merges itself.
+          B="publish/app-v$V-$GITHUB_RUN_ID"
+          git checkout -q -b "$B"
+          if git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "app: update-v2.json → $V"; then
+            git push origin "$B"
+            gh pr create -R "$GITHUB_REPOSITORY" --base main --head "$B" --title "app: update-v2.json → $V" --body "Автопубликация (publish-app, run $GITHUB_RUN_ID): подпись и SHA-256 проверены check-incoming.py."
+            gh pr merge -R "$GITHUB_REPOSITORY" "$B" --merge --delete-branch
+          else echo "no change"; fi
           git push origin --delete incoming
