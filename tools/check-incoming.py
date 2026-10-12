@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Verifies an `incoming` push before it is published: minisign signature of update-v2.json by the pinned CI key
 (or the offline primary/backup keys), trusted comment, package, versions, and SHA-256/size of every APK."""
-import base64, hashlib, json, os, sys
+import base64, hashlib, json, os, sys, time
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
 
 def pub(path):
@@ -22,6 +22,18 @@ k.verify(base64.b64decode(s[3]), sig + tc.encode())
 u = json.loads(data)
 assert u["package"] == "org.ivanivorontsov.tiho"
 assert tc.startswith(f"tiho-app {u['version_code']} "), "trusted comment mismatch"
+assert tc.endswith(" file:update-v2.json"), "trusted comment must name update-v2.json"
+assert alg == b"ED", "legacy Ed signatures are not accepted"
+assert u["expires"] > time.time() + 86400, "update-v2.json already expired / expires within a day"
+# Monotonic: never publish a descriptor older than the one currently on main (anti-rollback on the server side too).
+cur_path = sys.argv[2] if len(sys.argv) > 2 else None
+if cur_path and os.path.exists(cur_path):
+    cur = json.load(open(cur_path))
+    refresh = json.load(open(os.path.join(src, "meta.json"))).get("refresh")
+    if refresh:
+        assert u["version_code"] >= cur["version_code"], f"refresh to older version_code {u['version_code']} < {cur['version_code']}"
+    else:
+        assert u["version_code"] > cur["version_code"], f"version_code {u['version_code']} is not newer than {cur['version_code']}"
 meta = json.load(open(os.path.join(src, "meta.json")))
 assert meta["version"] == u["version_name"]
 if not meta.get("refresh"):

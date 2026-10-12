@@ -3,9 +3,14 @@ name: publish-app
 # Тихо's CI (private tiho-browser repo) pushes APKs + update-v2.json (signed with the CI-only Ed25519 key) to the
 # orphan `incoming` branch with a write deploy key. This workflow verifies everything, creates release app-vX with
 # the APKs, commits the descriptor to main and deletes `incoming`.
+#
+# SECURITY: this workflow is never triggered by a push to `incoming` any more. Push-triggered workflows run the YAML
+# from the pushed branch, so whoever held the deploy key could replace the verification. Instead it runs from `main`
+# (schedule / manual dispatch) and treats `incoming` purely as data.
 on:
-  push:
-    branches: [incoming]
+  schedule:
+    - cron: '*/20 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -18,21 +23,34 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Anything incoming?
+        id: probe
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/$GITHUB_REPOSITORY/branches/incoming" > /dev/null 2>&1; then echo "go=1" >> "$GITHUB_OUTPUT"; else echo "nothing to publish"; fi
+      - if: steps.probe.outputs.go == '1'
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: main
           path: main
-      - uses: actions/checkout@v4
+      - if: steps.probe.outputs.go == '1'
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: incoming
           path: incoming
+          persist-credentials: false
       - name: Verify signature and APK hashes
+        if: steps.probe.outputs.go == '1'
         run: |
           # APKs arrive in 45 MB parts (git's 100 MB file limit); join them, then verify size + SHA-256 of the result.
           if [ -d incoming/apks ]; then (cd incoming/apks && for p in *.apk.part-aa; do [ -e "$p" ] || continue; n="${p%.part-aa}"; cat "$n".part-* > "$n" && rm "$n".part-*; done && ls -l); fi
-          python3 -c "import cryptography" 2>/dev/null || pip install --quiet cryptography
-          cd main && python3 tools/check-incoming.py ../incoming
+          python3 -c "import cryptography" 2>/dev/null || pip install --quiet "cryptography==50.0.2"
+          # Workflow files in `incoming` are never executed; refuse the push outright if one is present.
+          if [ -d incoming/.github ]; then echo "::error::incoming must not contain .github/"; exit 1; fi
+          cd main && python3 tools/check-incoming.py ../incoming app/update-v2.json
       - name: Release + descriptor
+        if: steps.probe.outputs.go == '1'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -44,7 +62,7 @@ jobs:
               gh release upload "app-v$V" incoming/apks/*.apk --clobber -R "$GITHUB_REPOSITORY"
             else
               gh release create "app-v$V" incoming/apks/*.apk -R "$GITHUB_REPOSITORY" --target main --title "Тихо $V" \
-                --notes "Тихо $V на GeckoView $GV. APK подписаны ключом privbrowser (SHA-256 сертификата F1:72:85:19:60:CF:08:63:34:B7:14:91:FB:DC:48:89:86:1E:1E:EB:60:7E:4F:2D:40:6C:BD:86:FF:90:D6:D0). Устанавливаются поверх через встроенное обновление (app/update-v2.json)."
+                --notes "Тихо $V на GeckoView $GV. APK подписаны ключом privbrowser (SHA-256 сертификата CA:8B:DA:71:17:F3:99:86:2F:C7:E5:1D:F6:B7:BA:25:83:95:DD:CB:86:56:4D:D0:E2:5E:19:16:88:3B:AB:DD). Устанавливаются поверх через встроенное обновление (app/update-v2.json)."
             fi
           fi
           cp incoming/update-v2.json incoming/update-v2.json.minisig main/app/
