@@ -1,32 +1,32 @@
 {
  "format": 2,
  "package": "org.ivanivorontsov.tiho",
- "version_code": 11,
- "version_name": "2.0.6",
+ "version_code": 12,
+ "version_name": "2.0.7",
  "min_version_code": 1,
- "apk_url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v2.0.6/tiho-browser-2.0.6-arm64-v8a.apk",
- "sha256": "367576eb5f402a0311f3f7d01b426b0bec47a923ebd49286a7f2fbc82bec4693",
- "size": 97917734,
+ "apk_url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v2.0.7/tiho-browser-2.0.7-arm64-v8a.apk",
+ "sha256": "6c2a4f758ae21832181e1844d7fa5fb1a97c0d4d7c0cae8adc6b3fb71430b790",
+ "size": 97917822,
  "cert_sha256": "CA:8B:DA:71:17:F3:99:86:2F:C7:E5:1D:F6:B7:BA:25:83:95:DD:CB:86:56:4D:D0:E2:5E:19:16:88:3B:AB:DD",
- "released": "2026-10-16T09:51:14Z",
- "expires": 1796032274,
- "notes": "Тихо 2.0.6: GeckoView 158.0.20261007201254 (исправления безопасности движка)",
+ "released": "2026-10-17T16:25:42Z",
+ "expires": 1796142342,
+ "notes": "Тихо 2.0.7: GeckoView 158.0.20261007201254 (исправления безопасности движка)",
  "gecko_version": "158.0.20261007201254",
  "apks": {
   "arm64-v8a": {
-   "url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v2.0.6/tiho-browser-2.0.6-arm64-v8a.apk",
-   "sha256": "367576eb5f402a0311f3f7d01b426b0bec47a923ebd49286a7f2fbc82bec4693",
-   "size": 97917734
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v2.0.7/tiho-browser-2.0.7-arm64-v8a.apk",
+   "sha256": "6c2a4f758ae21832181e1844d7fa5fb1a97c0d4d7c0cae8adc6b3fb71430b790",
+   "size": 97917822
   },
   "armeabi-v7a": {
-   "url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v2.0.6/tiho-browser-2.0.6-armeabi-v7a.apk",
-   "sha256": "014a3192b653b61cfef2f8b00d43810ada97ece90277c7a2011aa15e1d98266f",
-   "size": 95189850
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v2.0.7/tiho-browser-2.0.7-armeabi-v7a.apk",
+   "sha256": "a907897fb8fa46ead99c5f319c0797eb9cabf057ac4d0a122bda30b39a8c694a",
+   "size": 95189938
   },
   "x86_64": {
-   "url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v2.0.6/tiho-browser-2.0.6-x86_64.apk",
-   "sha256": "d0c2e66d775c87b20574c3ac8ef84eb676086b22364d52e6b36cced24affb51c",
-   "size": 102966332
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-updates/releases/download/app-v2.0.7/tiho-browser-2.0.7-x86_64.apk",
+   "sha256": "e480a5543c7a9819f13c8225a3c590f492e2980668dd2e3604c327b0076d98c9",
+   "size": 102966420
   }
  }
 }
