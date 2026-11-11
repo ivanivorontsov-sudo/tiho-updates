@@ -1,0 +1,32 @@
+{
+ "format": 1,
+ "channel": "desktop",
+ "app": "tiho-desktop",
+ "version_code": 3,
+ "version_name": "2.0.0",
+ "released": "2026-11-11T08:05:51.571Z",
+ "expires": 1809936351,
+ "notes": "Тихо для ПК 2.0.0",
+ "files": {
+  "linux-deb": {
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.0/Tiho-2.0.0-linux-amd64.deb",
+   "sha256": "ffbef0ec68bf6e0c411a36efd1d41a48c011efb652144f64742f1566e86107f3",
+   "size": 111141356
+  },
+  "linux-appimage": {
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.0/Tiho-2.0.0-linux-x86_64.AppImage",
+   "sha256": "5e193f01deecdba6614183213ba309a14afba37238e1e574e14060d0beba0f5e",
+   "size": 136389931
+  },
+  "win-portable": {
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.0/Tiho-Portable-2.0.0-win-x64.exe",
+   "sha256": "7d5c39b185929d17440c68ef563d40c637ab5bb3d1aaf46c07d7d6b7b39c9bc3",
+   "size": 113582546
+  },
+  "win-setup": {
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.0/Tiho-Setup-2.0.0-win-x64.exe",
+   "sha256": "97636e79a376aedf98f2e01f37df9d2f29e5960afabba861c24bd43cac8c1515",
+   "size": 113604661
+  }
+ }
+}
