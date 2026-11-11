@@ -2,31 +2,31 @@
  "format": 1,
  "channel": "desktop",
  "app": "tiho-desktop",
- "version_code": 3,
- "version_name": "2.0.0",
- "released": "2026-11-11T08:05:51.571Z",
- "expires": 1809936351,
- "notes": "Тихо для ПК 2.0.0",
+ "version_code": 4,
+ "version_name": "2.0.1",
+ "released": "2026-11-11T10:00:05.423Z",
+ "expires": 1809943205,
+ "notes": "Тихо для ПК 2.0.1: не блокировать CDN картинок Яндекса и другие контентные CDN",
  "files": {
   "linux-deb": {
-   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.0/Tiho-2.0.0-linux-amd64.deb",
-   "sha256": "ffbef0ec68bf6e0c411a36efd1d41a48c011efb652144f64742f1566e86107f3",
-   "size": 111141356
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.1/Tiho-2.0.1-linux-amd64.deb",
+   "sha256": "b3af526558b5aa954707e0fbc00b402e25c899339ab454e0a8976f647723afcb",
+   "size": 111145788
   },
   "linux-appimage": {
-   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.0/Tiho-2.0.0-linux-x86_64.AppImage",
-   "sha256": "5e193f01deecdba6614183213ba309a14afba37238e1e574e14060d0beba0f5e",
-   "size": 136389931
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.1/Tiho-2.0.1-linux-x86_64.AppImage",
+   "sha256": "ec4ecf8096bf1488931999b8ae09afc7193330f27e909cb6ecd38ccd3ce83e2b",
+   "size": 136389951
   },
   "win-portable": {
-   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.0/Tiho-Portable-2.0.0-win-x64.exe",
-   "sha256": "7d5c39b185929d17440c68ef563d40c637ab5bb3d1aaf46c07d7d6b7b39c9bc3",
-   "size": 113582546
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.1/Tiho-Portable-2.0.1-win-x64.exe",
+   "sha256": "24c0ad637c3bf78cc976f916d9c4aef5a1da3253e319a5fbee8371e78251c0a6",
+   "size": 110967278
   },
   "win-setup": {
-   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.0/Tiho-Setup-2.0.0-win-x64.exe",
-   "sha256": "97636e79a376aedf98f2e01f37df9d2f29e5960afabba861c24bd43cac8c1515",
-   "size": 113604661
+   "url": "https://github.com/ivanivorontsov-sudo/tiho-desktop/releases/download/v2.0.1/Tiho-Setup-2.0.1-win-x64.exe",
+   "sha256": "645e8e2bd27126c3b25cad78db4802ce7be368baabf07ed8abe47449e2df16ef",
+   "size": 122868298
   }
  }
 }
